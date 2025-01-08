@@ -1,24 +1,32 @@
-document.getElementById("name-form").addEventListener("submit", function(event) {
+const boyNames = {
+    a: ["Ayan", "Arjun", "Amit", "Anik", "Aditya", "Abir", "Arif", "Ankur", "Asif", "Arafat"],
+    b: ["Babu", "Biplob", "Bijoy", "Borno", "Bikram", "Bashir", "Bilal", "Badrul", "Bikash", "Basit"],
+    // ... z পর্যন্ত
+  };
+  
+  const girlNames = {
+    a: ["Anika", "Anita", "Arpita", "Anamika", "Asha", "Ayesha", "Anuradha", "Ananya", "Amrita", "Aparna"],
+    b: ["Bithi", "Bela", "Bonya", "Bristy", "Bashira", "Borna", "Bithi", "Bulbuli", "Badhan", "Bristi"],
+    // ... z পর্যন্ত
+  };
+  
+  document.getElementById("name-form").addEventListener("submit", function(event) {
     event.preventDefault();
   
     const gender = document.getElementById("gender").value;
-    const letter = document.getElementById("letter").value.toUpperCase();
+    const letter = document.getElementById("letter").value.toLowerCase();
   
-    const boyNames = ["Ayan", "Arjun", "Ryan", "Samir", "Tuhin"];
-    const girlNames = ["Anika", "Riya", "Sanjana", "Tina", "Trisha"];
-  
-    let filteredNames;
-  
+    let names;
     if (gender === "boy") {
-      filteredNames = boyNames.filter(name => name.startsWith(letter));
+      names = boyNames[letter];
     } else {
-      filteredNames = girlNames.filter(name => name.startsWith(letter));
+      names = girlNames[letter];
     }
   
     const resultDiv = document.getElementById("result");
   
-    if (filteredNames.length > 0) {
-      const randomName = filteredNames[Math.floor(Math.random() * filteredNames.length)];
+    if (names && names.length > 0) {
+      const randomName = names[Math.floor(Math.random() * names.length)];
       resultDiv.textContent = `Suggested Name: ${randomName}`;
     } else {
       resultDiv.textContent = "No names found for the given criteria.";
