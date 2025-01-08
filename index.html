@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NameAura - Baby Name Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to NameAura</h1>
+    <p>Find the perfect baby name!</p>
+
+    <form id="name-form">
+      <label for="gender">Choose Gender:</label>
+      <select id="gender">
+        <option value="boy">Boy</option>
+        <option value="girl">Girl</option>
+      </select>
+
+      <label for="letter">Enter First Letter:</label>
+      <input type="text" id="letter" maxlength="1" required />
+
+      <button type="submit">Generate Name</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
